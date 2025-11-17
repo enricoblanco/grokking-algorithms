@@ -21,5 +21,11 @@ public class Main {
         System.out.println(s.doSelectionSort(nums2));
 
         System.out.println(r.factorial(4));
+        System.out.println(r.sum(nums));
+        System.out.println(r.findBiggest(nums));
+        System.out.println(r.binarySearch(nums, 2));
+
+
+
     }
 }
