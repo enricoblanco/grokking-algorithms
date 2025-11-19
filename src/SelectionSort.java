@@ -8,7 +8,7 @@ public class SelectionSort {
 
         int size = arr.size();
         for (int i = 0; i < size; i++) {
-            int smallest = findSmallest(arr);
+            int smallest = doFindSmallest(arr);
             newArr.add(arr.get(smallest));
 
             arr.remove(smallest);
@@ -17,7 +17,7 @@ public class SelectionSort {
         return newArr;
     }
 
-    private int findSmallest(List<Integer> arr) {
+    private int doFindSmallest(List<Integer> arr) {
         int smallest = arr.getFirst();
         int smallestIndex = 0;
         for (int i = 0; i < arr.size(); i++) {
