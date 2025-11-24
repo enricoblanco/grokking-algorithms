@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -8,6 +6,7 @@ public class Main {
         SelectionSort selectionSort = new SelectionSort();
         Recursion recursion = new Recursion();
         QuickSort quickSort = new QuickSort();
+        BreadthFirstSearch bfs = new BreadthFirstSearch();
 
         int[] nums = new int[] {1,2,3,4,5,6};
 
@@ -30,5 +29,17 @@ public class Main {
         System.out.println(nums2);
 
         System.out.println(quickSort.doQuickSort(Arrays.asList(10, 5, 2, 3)));
+
+        Map<String, List<String>> graph = new HashMap<>();
+        graph.put("you", Arrays.asList("alice", "bob", "claire"));
+        graph.put("bob", Arrays.asList("anuj", "peggy"));
+        graph.put("alice", List.of("peggy"));
+        graph.put("claire", Arrays.asList("thom", "jonny"));
+        graph.put("anuj", Collections.emptyList());
+        graph.put("peggy", Collections.emptyList());
+        graph.put("thom", Collections.emptyList());
+        graph.put("jonny", Collections.emptyList());
+
+        System.out.println(bfs.search("you", graph));
     }
 }
