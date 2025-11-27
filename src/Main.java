@@ -8,11 +8,11 @@ public class Main {
         QuickSort quickSort = new QuickSort();
         BreadthFirstSearch bfs = new BreadthFirstSearch();
 
-        int[] nums = new int[] {1,2,3,4,5,6};
+        var nums = new int[] {1,2,3,4,5,6};
 
         System.out.println(binarySearch.doBinarySearch(nums, 2));
 
-        List<Integer> nums2 = new ArrayList<>();
+        var nums2 = new ArrayList<Integer>();
         nums2.add(1);
         nums2.add(5);
         nums2.add(2);
@@ -41,5 +41,34 @@ public class Main {
         graph.put("jonny", Collections.emptyList());
 
         System.out.println(bfs.search("you", graph));
+
+        Map<String, Map<String, Double>> graphDijkstra = new HashMap<>();
+
+        Map<String, Double> a = new HashMap<>();
+        a.put("B", 5.0);
+        a.put("C", 2.0);
+        graphDijkstra.put("A", a);
+
+        Map<String, Double> b = new HashMap<>();
+        b.put("D", 4.0);
+        graphDijkstra.put("B", b);
+
+        Map<String, Double> c = new HashMap<>();
+        c.put("B", 8.0);
+        c.put("D", 7.0);
+        graphDijkstra.put("C", c);
+
+        graphDijkstra.put("D", new HashMap<>());
+
+        Dijkstra path = new Dijkstra(graphDijkstra);
+
+        path.compute("A");
+
+        System.out.println("Costs:");
+        path.getCosts().forEach((k, v) -> System.out.println(k + " = " + v));
+
+        System.out.println("\nPath to D:");
+        System.out.println(path.getPath("A", "D"));
+
     }
 }
